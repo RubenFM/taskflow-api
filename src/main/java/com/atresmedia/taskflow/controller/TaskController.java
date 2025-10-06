@@ -5,6 +5,7 @@ import java.util.List;
 import com.atresmedia.taskflow.model.Task;
 import com.atresmedia.taskflow.service.TaskService;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,27 +19,27 @@ public class TaskController {
     }
 
     @GetMapping
-    public List<Task> all() {
+    public List<Task> getAllTasks() {
         return taskService.getAllTasks();
     }
 
     @GetMapping("/{id}")
-    public Task one(@PathVariable Long id) {
-        return taskService.getTasksById(id);
+    public Task getTaskById(@PathVariable Long id) {
+        return taskService.getTaskById(id);
     }
 
     @PostMapping
-    public Task create(@RequestBody Task newTask) {
+    public Task createTask(@Valid @RequestBody Task newTask) {
         return taskService.createTask(newTask);
     }
 
     @PutMapping("/{id}")
-    public Task update(@PathVariable Long id, @RequestBody Task newTask) {
+    public Task updateTask(@PathVariable Long id,@Valid @RequestBody Task newTask) {
         return taskService.updateTask(id, newTask);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
+    public void deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
     }
 }
