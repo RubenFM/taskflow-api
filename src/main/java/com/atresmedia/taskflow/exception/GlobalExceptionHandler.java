@@ -28,7 +28,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(errors);
     }
 
-    // Método 2: Manejar RuntimeException (tarea no encontrada)
+    //tarea no encontrada
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<Map<String,Object>> handleRuntimeException(RuntimeException ex) {
         Map<String, Object> error = new HashMap<>();

@@ -42,4 +42,14 @@ public class TaskController {
     public void deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
     }
+
+    @GetMapping("/user/{userId}")
+    public List<Task> getTasksByUserId(@PathVariable Long userId) {
+        return taskService.getTasksByUserId(userId);
+    }
+
+    @GetMapping("/search")
+    public List<Task> searchTasks(@RequestParam String keyword) {
+        return taskService.searchTasksByTitle(keyword);
+    }
 }

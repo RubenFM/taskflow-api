@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.time.LocalDateTime;
+import com.atresmedia.taskflow.model.User;
 
 @Entity
 @Data
@@ -23,6 +24,10 @@ public class Task {
     @NotNull(message = "Status is required")
     @Enumerated(EnumType.STRING)
     private TaskStatus status = TaskStatus.PENDING;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "assigned_to_id")
+    private User assignedTo;
 
     private LocalDateTime createdAt = LocalDateTime.now();
 }

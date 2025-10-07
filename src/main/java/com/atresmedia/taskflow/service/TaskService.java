@@ -39,4 +39,12 @@ public class TaskService {
     public void deleteTask(Long id) {
         taskRepository.deleteById(id);
     }
+
+    public List<Task> getTasksByUserId(Long userId) {
+        return taskRepository.findByAssignedToId(userId);
+    }
+
+    public List<Task> searchTasksByTitle(String keyword) {
+        return taskRepository.findByTitleContainingIgnoreCase(keyword);
+    }
 }
