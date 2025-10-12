@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: taskflow-postgres
+    environment:
+      POSTGRES_DB: taskflowdb
+      POSTGRES_USER: taskflow_user
+      POSTGRES_PASSWORD: taskflow_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - taskflow-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U taskflow_user -d taskflowdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    image: taskflow-api:latest
+    build: .
+    container_name: taskflow-app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/taskflowdb
+      SPRING_DATASOURCE_USERNAME: taskflow_user
+      SPRING_DATASOURCE_PASSWORD: taskflow_pass
+      SPRING_PROFILES_ACTIVE: prod
+    ports:
+      - "8080:8080"
+    networks:
+      - taskflow-network
+
+volumes:
+  postgres_data:
+
+networks:
+  taskflow-network:
+    driver: bridge
