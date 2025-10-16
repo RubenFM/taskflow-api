@@ -1,7 +1,7 @@
-package com.atresmedia.taskflow.service;
+package com.taskflow.service;
 
-import com.atresmedia.taskflow.model.User;
-import com.atresmedia.taskflow.repository.UserRepository;
+import com.taskflow.model.User;
+import com.taskflow.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 

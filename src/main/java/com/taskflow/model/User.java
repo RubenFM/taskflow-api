@@ -1,4 +1,4 @@
-package com.atresmedia.taskflow.model;
+package com.taskflow.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;

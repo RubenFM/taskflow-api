@@ -1,4 +1,4 @@
-package com.atresmedia.taskflow.model;
+package com.taskflow.model;
 
 public enum UserRole {
     USER,

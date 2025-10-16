@@ -1,10 +1,9 @@
-package com.atresmedia.taskflow.model;
+package com.taskflow.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.time.LocalDateTime;
-import com.atresmedia.taskflow.model.User;
 
 @Entity
 @Data

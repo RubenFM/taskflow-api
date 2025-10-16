@@ -1,9 +1,9 @@
-package com.atresmedia.taskflow.controller;
+package com.taskflow.controller;
 
 import java.util.List;
 
-import com.atresmedia.taskflow.model.Task;
-import com.atresmedia.taskflow.service.TaskService;
+import com.taskflow.model.Task;
+import com.taskflow.service.TaskService;
 
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;

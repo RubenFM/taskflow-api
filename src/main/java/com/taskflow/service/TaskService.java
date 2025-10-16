@@ -1,7 +1,8 @@
-package com.atresmedia.taskflow.service;
+package com.taskflow.service;
 
-import com.atresmedia.taskflow.model.Task;
-import com.atresmedia.taskflow.repository.TaskRepository;
+import com.taskflow.exception.ResourceNotFoundException;
+import com.taskflow.model.Task;
+import com.taskflow.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

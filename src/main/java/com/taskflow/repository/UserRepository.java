@@ -1,6 +1,6 @@
-package com.atresmedia.taskflow.repository;
+package com.taskflow.repository;
 
-import com.atresmedia.taskflow.model.User;
+import com.taskflow.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

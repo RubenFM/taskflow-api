@@ -1,14 +1,11 @@
-package com.atresmedia.taskflow.exception;
+package com.taskflow.exception;
 
-import com.atresmedia.taskflow.model.Task;
 import org.springframework.http.*;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -38,4 +35,5 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
+
 }

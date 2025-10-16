@@ -1,7 +1,7 @@
-package com.atresmedia.taskflow.repository;
+package com.taskflow.repository;
 
-import com.atresmedia.taskflow.model.Task;
-import com.atresmedia.taskflow.model.TaskStatus;
+import com.taskflow.model.Task;
+import com.taskflow.model.TaskStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

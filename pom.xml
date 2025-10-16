@@ -8,7 +8,7 @@
         <version>3.3.5</version>
         <relativePath/>
     </parent>
-    <groupId>com.atresmedia</groupId>
+    <groupId>com.taskflow</groupId>
     <artifactId>taskflow</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>taskflow</name>
