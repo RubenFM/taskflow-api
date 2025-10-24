@@ -1,5 +1,5 @@
 # TaskFlow API
-
+![CI Pipeline](https://github.com/RubenFM/taskflow-api/workflows/CI%20Pipeline/badge.svg)
 API REST para gestión de tareas desarrollada con Spring Boot, PostgreSQL y Docker.
 
 ## Descripción
