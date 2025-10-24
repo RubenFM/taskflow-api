@@ -140,7 +140,7 @@ class TaskServiceTest {
 
         // Then
         verify(taskRepository, times(1)).findById(1L);
-        verify(taskRepository, times(1)).delete(task);
+        verify(taskRepository, times(1)).deleteById(1L);
     }
 
     @Test

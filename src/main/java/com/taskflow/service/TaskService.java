@@ -38,6 +38,8 @@ public class TaskService {
     }
 
     public void deleteTask(Long id) {
+        Task task = taskRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Task", id));
         taskRepository.deleteById(id);
     }
 
