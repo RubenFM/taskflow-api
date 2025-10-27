@@ -84,7 +84,6 @@ class TaskServiceTest {
 
     @Test
     void updateTask_ShouldUpdateTaskFields_WhenTaskExists() {
-        // Given
         Task updatedData = new Task();
         updatedData.setTitle("Updated task");
         updatedData.setDescription("Updated description");
@@ -99,10 +98,10 @@ class TaskServiceTest {
         when(taskRepository.findById(1L)).thenReturn(Optional.of(existingTask));
         when(taskRepository.save(any(Task.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
-        // When
+
         Task result = taskService.updateTask(1L, updatedData);
 
-        // Then
+
         assertNotNull(result);
         assertEquals("Updated task", result.getTitle());
         assertEquals("Updated description", result.getDescription());
@@ -113,7 +112,7 @@ class TaskServiceTest {
 
     @Test
     void updateTask_WhenTaskNotExists_ShouldThrowException() {
-        // Given
+
         Task updatedData = new Task();
         updatedData.setTitle("Updated task");
         updatedData.setDescription("Updated description");
@@ -121,7 +120,7 @@ class TaskServiceTest {
 
         when(taskRepository.findById(999L)).thenReturn(Optional.empty());
 
-        // When & Then
+
         assertThrows(RuntimeException.class, () -> {
             taskService.updateTask(999L, updatedData);
         });
@@ -132,23 +131,23 @@ class TaskServiceTest {
 
     @Test
     void deleteTask_WhenTaskExists_ShouldDeleteTask() {
-        // Given
+
         when(taskRepository.findById(1L)).thenReturn(Optional.of(task));
 
-        // When
+
         taskService.deleteTask(1L);
 
-        // Then
+
         verify(taskRepository, times(1)).findById(1L);
         verify(taskRepository, times(1)).deleteById(1L);
     }
 
     @Test
     void deleteTask_WhenTaskNotExists_ShouldThrowException() {
-        // Given
+
         when(taskRepository.findById(999L)).thenReturn(Optional.empty());
 
-        // When & Then
+
         assertThrows(RuntimeException.class, () -> {
             taskService.deleteTask(999L);
         });
