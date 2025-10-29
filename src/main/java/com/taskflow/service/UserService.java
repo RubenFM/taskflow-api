@@ -1,5 +1,6 @@
 package com.taskflow.service;
 
+import com.taskflow.exception.ResourceNotFoundException;
 import com.taskflow.model.User;
 import com.taskflow.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,8 @@ public class UserService {
     }
 
     public User getUserById(Long id) {
-        return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+        return userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User", id));
     }
 
     public User createUser(User user) {
@@ -36,6 +38,8 @@ public class UserService {
     }
 
     public void deleteUser(Long id) {
-        userRepository.deleteById(id);
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User", id));
+        userRepository.delete(user);
     }
 }
