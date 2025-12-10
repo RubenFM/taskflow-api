@@ -219,10 +219,10 @@ El proyecto incluye **28 tests automatizados** con cobertura completa:
 
 ### **Tipos de tests:**
 
-✅ **Tests unitarios:** Verifican lógica de negocio aislada con mocks  
-✅ **Tests de integración:** Verifican persistencia con H2 real  
-✅ **Casos de éxito:** Operaciones correctas  
-✅ **Casos de error:** Excepciones y validaciones
+ **Tests unitarios:** Verifican lógica de negocio aislada con mocks  
+ **Tests de integración:** Verifican persistencia con H2 real  
+ **Casos de éxito:** Operaciones correctas  
+ **Casos de error:** Excepciones y validaciones
 
 ---
 
